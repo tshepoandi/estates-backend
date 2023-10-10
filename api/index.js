@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import UserRouter from './routes/user.route.js'
+import { signup } from './controllers/auth.controller.js'
 
 
 dotenv.config()
@@ -17,3 +18,4 @@ app.listen(4000, () => {
 })
 
 app.use("/api/user", UserRouter)
+api.use("api/auth/signup", signup)
