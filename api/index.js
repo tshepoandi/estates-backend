@@ -6,6 +6,7 @@ import { signup } from './controllers/auth.controller.js'
 
 
 dotenv.config()
+
 mongoose.connect(process.env.MONGO).then(() => {
     console.log("connected to mongoDB")
 }).catch((error) => {
@@ -13,6 +14,8 @@ mongoose.connect(process.env.MONGO).then(() => {
 })
 
 const app = express();
+app.use(express.json())
+
 app.listen(4000, () => {
     console.log("server is running")
 })
